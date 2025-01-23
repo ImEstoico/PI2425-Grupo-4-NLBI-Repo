@@ -1,5 +1,3 @@
-Aquí tienes una presentación para tu repositorio de GitHub, adaptada para ser graciosa, vistosa y con el uso de formatos de GitHub para que se vea espectacular. 😎  
-
 ### 🏫 **NLB | 1º DAW: El Repositorio de las Leyendas** 🚀  
 ¡Bienvenidos, futuros ninjas del desarrollo! Este es **el santuario sagrado** donde subiremos todos los proyectos del curso. Desde los programas más humildes hasta las aplicaciones que cambiarán el mundo 🌍 (o al menos nos harán pasar de curso 😅).
 
@@ -66,4 +64,4 @@ Aquí estamos los cracks que hacemos magia:
 
 🚀 _¡A por todas, equipo NLB!_ 🎉  
 
-Espero que te guste el toque humorístico y visual. Si necesitas que adapte algo más o agregar emotes específicos, ¡dímelo! 😄
+(este mensaje no esta hecho PARA NADA con chat gpt)
