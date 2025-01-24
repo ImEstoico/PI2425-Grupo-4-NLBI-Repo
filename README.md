@@ -37,23 +37,22 @@ Para que esto no sea un **caos digno de memes**, sigamos estas sencillas reglas:
 
 ### 🤩 **Miembros del Dream Team**  
 Aquí estamos los cracks que hacemos magia:  
-- **🐱‍💻 Nombre1**: _Especialista en nombres de variables confusas._  
-- **🔥 Nombre2**: _Aplasta bugs con elegancia._  
-- **⚡ Nombre3**: _Ctrl+C y Ctrl+V, pero con estilo._  
+- **🐱‍💻 Naim**: _Especialista en nombres de variables confusas._  
+- **🔥 Lucia**: _Aplasta bugs con elegancia._  
+- **⚡ Blas**: _Ctrl+C y Ctrl+V, pero con estilo._  
 
-*(Añade tu nombre al README para ser parte del Salón de la Fama ✨)*  
 
 ---
 
 ### 🛠️ **Tecnologías que usamos**  
 💻 Lenguajes:  
-- Python 🐍  
 - HTML y CSS 🌐  
 - Java ☕  
 - Y lo que se nos ocurra… 🤷‍♂️  
 
 🛠️ Herramientas:  
-- VSCode ✨  
+- VSCode ✨
+- intellij
 - GitHub 💖  
 - Café ☕ y memes para la motivación.  
 
