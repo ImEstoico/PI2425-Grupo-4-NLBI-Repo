@@ -1,4 +1,4 @@
-### 🏫 **NLB | 1º DAW: El Repositorio de las Leyendas** 🚀  
+### 🏫 **NLBI | 1º DAW: El Repositorio de las Leyendas** 🚀  
 ¡Bienvenidos, futuros ninjas del desarrollo! Este es **el santuario sagrado** donde subiremos todos los proyectos del curso. Desde los programas más humildes hasta las aplicaciones que cambiarán el mundo 🌍 (o al menos nos harán pasar de curso 😅).
 
 ---
@@ -61,6 +61,6 @@ Aquí estamos los cracks que hacemos magia:
 ### 🏆 **¿Listos para la aventura?**  
 ¡Vamos a llenar este repositorio con proyectos épicos! **No olviden darle ⭐ si están tan emocionados como nosotros.**  
 
-🚀 _¡A por todas, equipo NLB!_ 🎉  
+🚀 _¡A por todas, equipo NLBI!_ 🎉  
 
 (este mensaje no esta hecho PARA NADA con chat gpt)
