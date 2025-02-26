@@ -1,4 +1,4 @@
-package articulo.model;
+package tienda.Model;
 
 public class chaqueta extends ropa {
     private boolean impermeable;
