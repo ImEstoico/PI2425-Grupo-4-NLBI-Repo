@@ -1,4 +1,4 @@
-package Util;
+package tienda.Model;
 
 public class LineaPedido extends Pedido{
 
