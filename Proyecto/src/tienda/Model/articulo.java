@@ -1,4 +1,4 @@
-package articulo.model;
+package tienda.Model;
 
 abstract class  articulo {
     protected String codigoArticulo;
