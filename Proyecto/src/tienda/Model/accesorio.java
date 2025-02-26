@@ -1,4 +1,4 @@
-package articulo.model;
+package tienda.Model;
 
 abstract class accesorio extends articulo {
     protected String estilo;
