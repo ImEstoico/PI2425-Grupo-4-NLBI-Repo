@@ -1,4 +1,4 @@
-package Clases.sin.Composiciones;
+package tienda.Model;
 
 public class Departamento  {
 
