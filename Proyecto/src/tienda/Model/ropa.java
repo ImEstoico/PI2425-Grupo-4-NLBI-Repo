@@ -1,4 +1,4 @@
-package articulo.model;
+package tienda.Model;
 
 abstract class ropa extends articulo {
     protected int talla;
