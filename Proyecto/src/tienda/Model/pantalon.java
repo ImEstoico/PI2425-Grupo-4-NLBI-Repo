@@ -1,4 +1,4 @@
-package articulo.model;
+package tienda.Model;
 
 public class pantalon extends ropa {
     private boolean tieneBolsillo;
