@@ -24,13 +24,9 @@ public class Departamento  {
 }
 
     //Crear departamento
-    public Departamento(int codigo, String nombre) {
-
-        System.out.println("Creando departamento");
-
-        Departamento nuevo = new Departamento(codigo, nombre);
-        nuevo.setCodigo(codigo);
-        nuevo.setNombre(nombre);
+     public Departamento(int codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
 
     }
 
