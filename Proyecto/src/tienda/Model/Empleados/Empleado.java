@@ -2,9 +2,12 @@ package tienda.Model.Empleados;
 
 import tienda.Model.Usuarios.Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-class Empleado extends Usuario {
+public class Empleado extends Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+
 
     private boolean tienePrivilegios;
     private Departamento departamento;

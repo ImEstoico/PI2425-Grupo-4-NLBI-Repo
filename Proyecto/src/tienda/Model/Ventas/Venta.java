@@ -16,6 +16,10 @@ public class Venta {
         this.ventas = ventas;
     }
 
+    public Venta() {
+        ventas = new ArrayList();
+    }
+
     // Método para buscar un pedido por código. Si no lo encuentra, muestra un mensaje.
     // CAMBIOS NECESARIOS DE A FUTURO
     public Pedido buscarCodigoPedido(int codigo) {
@@ -47,7 +51,7 @@ public class Venta {
         float precioVenta = 0.0f;
         for (Pedido pedido : ventas) {
             for (LineaPedido linea : pedido.getLineaPedidos()){
-                precioVenta +=  linea.getCod_art().getPrecio();
+                precioVenta +=  linea.getArticulo().getPrecio();
             }
         }
         return precioVenta;

@@ -11,6 +11,14 @@ public class Clientela {
         this.clientes = new ArrayList<>();
     }
 
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
     // CRUD methods
     public void addCliente(Cliente cliente) {
         clientes.add(cliente);
