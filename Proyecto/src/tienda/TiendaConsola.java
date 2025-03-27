@@ -68,6 +68,8 @@ public class TiendaConsola {
         }
     }
 
+
+
     private static void menuClientela() {
         while (true) {
             System.out.println("\nSubmenú Clientela:");
