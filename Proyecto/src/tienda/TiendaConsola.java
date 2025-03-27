@@ -5,12 +5,13 @@ import tienda.Model.Clientes.Clientela;
 import tienda.Model.Empleados.Plantilla;
 import tienda.Model.Ventas.Venta;
 import tienda.Util.Console.ConsoleReader;
+import java.util.ArrayList;
 
 public class TiendaConsola {
     private static Plantilla plantilla = new Plantilla();
     private static Clientela clientela = new Clientela();
-    private static Catalogo catalogo = new Catalogo();
-    private static Venta ventas = new Venta();
+    private static Catalogo catalogo = new Catalogo(new ArrayList<>());
+    private static Venta ventas = new Venta(new ArrayList<>());
 
     public static void main(String[] args) {
         while (true) {
