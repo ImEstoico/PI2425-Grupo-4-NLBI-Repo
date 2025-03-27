@@ -34,9 +34,20 @@ public class Clientela {
     public void updateCliente(Cliente cliente) {
         Cliente existingCliente = getCliente(cliente.getDni());
         if (existingCliente != null) {
-            existingCliente.setNombre(cliente.getNombre());
+            existingCliente.setDni(cliente.getDni());
             existingCliente.setApellidos(cliente.getApellidos());
+            existingCliente.setNombre(cliente.getNombre());
+            existingCliente.setTelefono(cliente.getTelefono());
+            existingCliente.setDireccion(cliente.getDireccion());
+            existingCliente.setEmail(cliente.getEmail());
+            existingCliente.setActivo(cliente.isActivo());
+            existingCliente.setPass(cliente.getPass());
+            existingCliente.setF_nacimiento(cliente.getF_nacimiento());
+            existingCliente.setNumeroPedidos(cliente.getNumeroPedidos());
+            existingCliente.setTieneTarjetaFidelizacion(cliente.isTieneTarjetaFidelizacion());
+            existingCliente.setDireccionEnvio(cliente.getDireccionEnvio());
             existingCliente.setMetodoPago(cliente.getMetodoPago());
+            existingCliente.setPedidos(cliente.getPedidos());
         }
     }
 

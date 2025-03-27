@@ -2,9 +2,11 @@ package tienda.Util.File;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import tienda.Model.Articulos.Articulo;
+import tienda.Model.Catalogo.Catalogo;
 import tienda.Model.Clientes.*;
 import tienda.Model.Empleados.Departamento;
 import tienda.Model.Empleados.Empleado;
+import tienda.Model.Empleados.Plantilla;
 import tienda.Model.Pedidos.*;
 
 import java.io.*;
@@ -59,10 +61,10 @@ public class FileUtil  {
     }
 
     // Serializar Clientes en JSON
-    public static void guardarClientesEnJson(List<Cliente> clientes, String filePath) {
+    public static void guardarClientesEnJson(Clientela clientela, String filePathClientela) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File(filePath), clientes);
+            objectMapper.writeValue(new File(filePathClientela), clientela);
             System.out.println("Lista de clientes guardada correctamente en JSON.");
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,11 +72,11 @@ public class FileUtil  {
     }
 
     // Leer una lista de clientes desde JSON
-    public static List<Cliente> leerClientesDesdeJson(String filePath) {
+    public static List<Cliente> leerClientesDesdeJson(String filePathClientela) {
         List<Cliente> clientes = null;
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            clientes = objectMapper.readValue(new File(filePath),
+            clientes = objectMapper.readValue(new File(filePathClientela),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Cliente.class));
             System.out.println("Lista de clientes leída correctamente desde JSON.");
         } catch (IOException e) {
@@ -84,10 +86,11 @@ public class FileUtil  {
     }
 
     // Serializar Métodos de Pago en JSON
-    public static void guardarMetodosPagoEnJson(List<Metodo_Pago> metodosPago, String filePath) {
+    // No sabemos como añadirlo en TiendaConsola.java. Linea 161
+    public static void guardarMetodosPagoEnJson(List<Metodo_Pago> metodosPago, String filePathClientela) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File(filePath), metodosPago);
+            objectMapper.writeValue(new File(filePathClientela), metodosPago);
             System.out.println("Lista de métodos de pago guardada correctamente en JSON.");
         } catch (IOException e) {
             e.printStackTrace();
@@ -95,11 +98,11 @@ public class FileUtil  {
     }
 
     // Leer una lista de Metodo_Pago desde JSON
-    public static List<Metodo_Pago> leerMetodosPagoDesdeJson(String filePath) {
+    public static List<Metodo_Pago> leerMetodosPagoDesdeJson(String filePathClientela) {
         List<Metodo_Pago> metodosPago = null;
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            metodosPago = objectMapper.readValue(new File(filePath),
+            metodosPago = objectMapper.readValue(new File(filePathClientela),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Metodo_Pago.class));
             System.out.println("Lista de métodos de pago leída correctamente desde JSON.");
         } catch (IOException e) {
@@ -109,14 +112,14 @@ public class FileUtil  {
     }
 
     //Serializar Articulos en JSON
-    public static void guardarArticulosEnJson(List<Articulo> articulos, String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
+    public static void guardarArticulosEnJson(Catalogo articulo, String filePathCatalogo) {
+        try (FileWriter writer = new FileWriter(filePathCatalogo)) {
 
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.enableDefaultTyping();//Sirve para habilitar la deserializacion en las jerarquias
 
             //Escribe la lista de articulos con sus subclases
-            objectMapper.writeValue(writer, articulos);
+            objectMapper.writeValue(writer, articulo);
 
         } catch (IOException e) {
             System.out.println("Error al guardar los artículos en el archivo JSON.");
@@ -125,14 +128,14 @@ public class FileUtil  {
     }
 
     // Métodos para leer Artículos desde un archivo JSON
-    public static List<Articulo> leerArticulosDesdeJson(String filePath) {
-        try (FileReader reader = new FileReader(filePath)) {
+    public static List<Articulo> leerArticulosDesdeJson(String filePathCatalogo) {
+        try (FileReader reader = new FileReader(filePathCatalogo)) {
 
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.enableDefaultTyping();//Sirve para habilitar la deserializacion en las jerarquias
 
             //Esta parte es la que lee y lo concierte en una lista
-            List<Articulo> articulos = objectMapper.readValue(new File(filePath),
+            List<Articulo> articulos = objectMapper.readValue(new File(filePathCatalogo),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Articulo.class));
             return articulos;
 
@@ -143,22 +146,21 @@ public class FileUtil  {
     }
 
     // Serializar Empleados en JSON
-    public static List<Empleado> guardarEmpleadosEnJson (List<Empleado> empleados, String filePath) {
+    public static void guardarEmpleadosEnJson (Plantilla plantilla, String filePathPlantilla) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File(filePath), empleados);
+            objectMapper.writeValue(new File(filePathPlantilla), plantilla);
             System.out.println("Lista de empleados guardada correctamente en JSON.");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return empleados;
     }
 
-    public static List<Empleado> leerEmpleadosDesdeJson (String filePath) {
-    List <Empleado> empleados = null;
-    ObjectMapper objectMapper = new ObjectMapper();
+    public static List<Empleado> leerEmpleadosDesdeJson (String filePathPlantilla) {
+        List <Empleado> empleados = null;
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            empleados = objectMapper.readValue(new File(filePath),
+            empleados = objectMapper.readValue(new File(filePathPlantilla),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Empleado.class));
             System.out.println("Lista de empleados leída correctamente desde JSON.");
         } catch (IOException e) {
@@ -168,10 +170,11 @@ public class FileUtil  {
     }
 
     //Serializar Departamentos en JSON
-    public static void guardarDepartamentosEnJson(List<Departamento> departamentos, String filePath) {
+    // No sabemos como añadirlo en TiendaConsola.java. Linea 168
+    public static void guardarDepartamentosEnJson(List<Departamento> departamentos, String filePathPlantilla) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File(filePath), departamentos);
+            objectMapper.writeValue(new File(filePathPlantilla), departamentos);
             System.out.println("Lista de departamentos guardada correctamente en JSON.");
         } catch (IOException e) {
             e.printStackTrace();
@@ -179,11 +182,11 @@ public class FileUtil  {
     }
 
     // Leer una lista de Departamentos desde JSON
-    public static List<Departamento> leerDepartamentosDesdeJson(String filePath) {
+    public static List<Departamento> leerDepartamentosDesdeJson(String filePathPlantilla) {
         List<Departamento> departamentos = null;
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            departamentos = objectMapper.readValue(new File(filePath),
+            departamentos = objectMapper.readValue(new File(filePathPlantilla),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Departamento.class));
             System.out.println("Lista de departamentos leída correctamente desde JSON.");
         } catch (IOException e) {

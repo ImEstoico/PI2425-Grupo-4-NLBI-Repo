@@ -7,7 +7,7 @@ public class Plantilla{
 
     private ArrayList<Empleado> empleados = new ArrayList();
 
-//Contructor
+    //Contructor
     public Plantilla(ArrayList<Empleado> empleados) {
         this.empleados = empleados;
     }
@@ -16,13 +16,13 @@ public class Plantilla{
         empleados = new ArrayList();
     }
 
-//Getter
+    //Getter
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
     }
 
 
-//Setter
+    //Setter
     public void setEmpleados(ArrayList<Empleado> empleados) {
         this.empleados = empleados;
     }
@@ -53,7 +53,17 @@ public class Plantilla{
     public boolean updateEmpleado(Empleado nuevoempleado) {
         for (Empleado empleado : empleados) {
             if(empleado.getDni() == nuevoempleado.getDni()){
+                empleado.setDni(nuevoempleado.getDni());
+                empleado.setApellidos(nuevoempleado.getApellidos());
                 empleado.setNombre(nuevoempleado.getNombre());
+                empleado.setTelefono(nuevoempleado.getTelefono());
+                empleado.setDireccion(nuevoempleado.getDireccion());
+                empleado.setEmail(nuevoempleado.getEmail());
+                empleado.setActivo(nuevoempleado.isActivo());
+                empleado.setPass(nuevoempleado.getPass());
+                empleado.setF_nacimiento(nuevoempleado.getF_nacimiento());
+                empleado.setTienePrivilegios(nuevoempleado.tienePrivilegios());
+                empleado.setDepartamento(nuevoempleado.getDepartamento());
                 return true;
             }
         }
@@ -85,7 +95,7 @@ public class Plantilla{
     }
 
     public void FiltrarNombresEmpleado(String nombre, String apellidos) {
-       ArrayList<Empleado> empleadosFiltrados = new ArrayList();
+        ArrayList<Empleado> empleadosFiltrados = new ArrayList();
         for (Empleado empleado : empleados) {
             if(empleado.getNombre() == nombre && empleado.getApellidos() == apellidos){
                 empleadosFiltrados.add(empleado);
@@ -112,7 +122,7 @@ public class Plantilla{
         }
     }
 
-//ToString
+    //ToString
     @Override
     public String toString() {
         return "Plantilla{" +

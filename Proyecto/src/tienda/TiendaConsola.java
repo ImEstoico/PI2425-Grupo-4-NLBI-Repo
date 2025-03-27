@@ -4,8 +4,11 @@ import tienda.Model.Articulos.Articulo;
 import tienda.Model.Catalogo.Catalogo;
 import tienda.Model.Clientes.Cliente;
 import tienda.Model.Clientes.Clientela;
+import tienda.Model.Empleados.Departamento;
 import tienda.Model.Empleados.Empleado;
 import tienda.Model.Empleados.Plantilla;
+import tienda.Model.Pedidos.Metodo_Pago;
+import tienda.Model.Pedidos.Pedido;
 import tienda.Model.Ventas.Venta;
 import tienda.Util.Console.ConsoleReader;
 import tienda.Util.Console.ConsoleUtil;
@@ -21,6 +24,9 @@ public class TiendaConsola {
     private static Venta ventas = new Venta();
 
     private static final String filePath = "objeto.bin";
+    private static final String filePathClientela = "clientes.json";
+    private static final String filePathPlantilla = "empleados.json";
+    private static final String filePathCatalogo = "articulos.json";
 
     public static void main(String[] args) {
         while (true) {
@@ -73,13 +79,13 @@ public class TiendaConsola {
                     int opcionSerializar = ConsoleReader.readInt();
                     switch (opcionSerializar) {
                         case 1:
-                            FileUtil.serializarObjeto(plantilla, filePath);
+                            FileUtil.serializarObjeto(plantilla, "objeto.bin");
                             break;
                         case 2:
-                            FileUtil.serializarObjeto(clientela, filePath);
+                            FileUtil.serializarObjeto(clientela, "objeto.bin");
                             break;
                         case 3:
-                            FileUtil.serializarObjeto(catalogo, filePath);
+                            FileUtil.serializarObjeto(catalogo, "objeto.bin");
                             break;
                         default:
                             System.out.println("Opción no válida. Intenta de nuevo.");
@@ -93,13 +99,13 @@ public class TiendaConsola {
                     int opcionDeserializar = ConsoleReader.readInt();
                     switch (opcionDeserializar) {
                         case 1:
-                            plantilla = FileUtil.deserializarObjeto(filePath, Plantilla.class);
+                            plantilla = FileUtil.deserializarObjeto("objeto.bin", Plantilla.class);
                             break;
                         case 2:
-                            clientela = FileUtil.deserializarObjeto(filePath,Clientela.class );
+                            clientela = FileUtil.deserializarObjeto("objeto.bin",Clientela.class );
                             break;
                         case 3:
-                            catalogo = FileUtil.deserializarObjeto(filePath, Catalogo.class);
+                            catalogo = FileUtil.deserializarObjeto("objeto.bin", Catalogo.class);
                             break;
                         default:
                             System.out.println("Opción no válida. Intenta de nuevo.");
@@ -113,13 +119,13 @@ public class TiendaConsola {
                     int opcionSerializarLista = ConsoleReader.readInt();
                     switch (opcionSerializarLista) {
                         case 1:
-                            FileUtil.serializarListaObjetos(plantilla.getEmpleados(), filePath);
+                            FileUtil.serializarListaObjetos(plantilla.getEmpleados(), "objeto.bin");
                             break;
                         case 2:
-                            FileUtil.serializarListaObjetos(clientela.getClientes(), filePath);
+                            FileUtil.serializarListaObjetos(clientela.getClientes(), "objeto.bin");
                             break;
                         case 3:
-                            FileUtil.serializarListaObjetos(catalogo.getArticulo(), filePath);
+                            FileUtil.serializarListaObjetos(catalogo.getArticulo(), "objeto.bin");
                             break;
                         default:
                             System.out.println("Opción no válida. Intenta de nuevo.");
@@ -133,47 +139,53 @@ public class TiendaConsola {
                     int opcionDeserializarLista = ConsoleReader.readInt();
                     switch (opcionDeserializarLista) {
                         case 1:
+                            List<Plantilla> listaEmpleados = FileUtil.deserializarListaObjetos("objeto.bin", Plantilla.class);
+                            break;
+                        case 2:
+                            List<Clientela> listaClientes = FileUtil.deserializarListaObjetos("objeto.bin", Clientela.class);
+                            break;
+                        case 3:
+                            List<Catalogo> listaArticulos = FileUtil.deserializarListaObjetos("objeto.bin", Catalogo.class);
                             break;
                     }
-                    FileUtil.deserializarListaObjetos();
                     break;
                 case  9:
-                    System.out.println("Elige el objeto a deserializar:");
+                    System.out.println("Elige el objeto a serializar en JSON:");
                     System.out.println("1. Clientes");
                     System.out.println("2. Articulos");
                     System.out.println("3. Empleados");
                     int opcionSerializarJson = ConsoleReader.readInt();
                     switch (opcionSerializarJson) {
                         case 1:
-                            FileUtil.guardarClientesEnJson();
-                            FileUtil.guardarMetodosPagoEnJson();
+                            FileUtil.guardarClientesEnJson(clientela, "clientes.json");
+                            FileUtil.guardarMetodosPagoEnJson(, "clientes.json");
                             break;
                         case 2:
-                            FileUtil.guardarArticulosEnJson();
+                            FileUtil.guardarArticulosEnJson(catalogo, "articulos.json");
                             break;
                         case 3:
-                            FileUtil.guardarEmpleadosEnJson();
-                            FileUtil.guardarDepartamentosEnJson();
+                            FileUtil.guardarEmpleadosEnJson(plantilla, "empleados.json");
+                            FileUtil.guardarDepartamentosEnJson(, "empleados.json");
                             break;
                     }
                     break;
                 case 10:
-                    System.out.println("Elige el objeto a deserializar:");
+                    System.out.println("Elige el objeto a deserializar en JSON:");
                     System.out.println("1. Clientes");
                     System.out.println("2. Articulos");
                     System.out.println("3. Empleados");
                     int opcionDeserializarJson = ConsoleReader.readInt();
                     switch (opcionDeserializarJson) {
                         case 1:
-                            FileUtil.leerClientesDesdeJson();
-                            FileUtil.leerMetodosPagoDesdeJson();
+                            FileUtil.leerClientesDesdeJson("clientes.json");
+                            FileUtil.leerMetodosPagoDesdeJson("clientes.json");
                             break;
                         case 2:
-                            FileUtil.leerArticulosDesdeJson();
+                            FileUtil.leerArticulosDesdeJson("articulos.json");
                             break;
                         case 3:
-                            FileUtil.leerEmpleadosDesdeJson();
-                            FileUtil.leerDepartamentosDesdeJson();
+                            FileUtil.leerEmpleadosDesdeJson("empleados.json");
+                            FileUtil.leerDepartamentosDesdeJson("empleados.json");
                             break;
                     }
                     break;
@@ -208,8 +220,6 @@ public class TiendaConsola {
             }
         }
     }
-
-
 
     private static void menuClientela() {
         while (true) {

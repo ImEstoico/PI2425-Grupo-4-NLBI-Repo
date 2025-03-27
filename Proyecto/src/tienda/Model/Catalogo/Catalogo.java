@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Catalogo {
-    private ArrayList<Articulo> articulo = new ArrayList<>();
+    private ArrayList<Articulo> articulos = new ArrayList<>();
 
     public Catalogo(ArrayList<Articulo> articulo) {
-        this.articulo = articulo;
+        this.articulos = articulo;
     }
 
     public Catalogo() {
-        articulo = new ArrayList();
+        articulos = new ArrayList();
     }
 
     public ArrayList<Articulo> getArticulo() {
-        return articulo;
+        return articulos;
     }
 
     public void setArticulo(ArrayList<Articulo> articulo) {
-        this.articulo = articulo;
+        this.articulos = articulo;
     }
 
     public void addArticulo(Articulo nuevo) {
         Articulo existente = getArticulo(nuevo.getCodigoArticulo());
         if (existente == null)
-            articulo.add(nuevo);
+            articulos.add(nuevo);
         else
             System.out.println("Articulo duplicado");
     }
 
     public Articulo getArticulo(String id) {
-        for (Articulo art : articulo) {
+        for (Articulo art : articulos) {
             if (art.getCodigoArticulo() == id)
                 return art;
         }
@@ -43,7 +43,15 @@ public class Catalogo {
     public boolean updateArticulo(Articulo nuevo) {
         Articulo existente = getArticulo(nuevo.getCodigoArticulo());
         if (existente != null) {
+            existente.setCodigoArticulo(nuevo.getCodigoArticulo());
             existente.setNombre(nuevo.getNombre());
+            existente.setPrecio(nuevo.getPrecio());
+            existente.setMarca(nuevo.getMarca());
+            existente.setDescripcion(nuevo.getDescripcion());
+            existente.setImagen(nuevo.getImagen());
+            existente.setActivo(nuevo.isActivo());
+            existente.setColor(nuevo.getColor());
+            existente.setMaterial(nuevo.getMaterial());
             return true;
         }
         System.out.println("Articulo no encontrado");
@@ -52,7 +60,7 @@ public class Catalogo {
 
     public boolean deleteArticulo(String id) {
         boolean encontrado = false;
-        Iterator<Articulo> iterador = articulo.iterator();
+        Iterator<Articulo> iterador = articulos.iterator();
         while (iterador.hasNext()) {
             Articulo art = iterador.next();
             if (art.getCodigoArticulo() == id) {
@@ -66,25 +74,21 @@ public class Catalogo {
     }
 
     // Apartado Buscar por codigo
-    public void Buscar_Codigo(ArrayList<Articulo> articulo) {
-        this.articulo = articulo;
-    }
-
-    public boolean anadirCodigo(Articulo art) {
-        boolean insertado = false;
-        if (art != null) {
-            insertado = articulo.add(art);
+    public void Buscar_Codigo(String codigoArticulo) {
+        for (Articulo art : articulos) {
+            if (art.getCodigoArticulo().equals(codigoArticulo)) {
+                System.out.println(art);
+            }
         }
-        return insertado;
     }
 
     public Articulo BuscarCodigo(Articulo cod) {
         Articulo art = null, enc = null;
         boolean encontrado = false;
-        Iterator<Articulo> iterator = articulo.iterator();
+        Iterator<Articulo> iterator = articulos.iterator();
         while (iterator.hasNext() && !encontrado) {
             art = iterator.next();
-            if (art.getCodigoArticulo() == cod.getCodigoArticulo()) {
+            if (art.getCodigoArticulo().equals(cod.getCodigoArticulo())) {
                 enc = art;
                 encontrado = true;
             }
@@ -92,10 +96,10 @@ public class Catalogo {
         return enc;
     }
 
-    public boolean borrarCodigo(Articulo cod) {
+    public boolean borrarCodigo(String codigoArticulo) {
         boolean insertado = false;
-        if (cod != null) {
-            insertado = articulo.remove(cod);
+        if (codigoArticulo != null) {
+            insertado = articulos.remove(codigoArticulo);
         }
         return insertado;
     }
@@ -103,24 +107,24 @@ public class Catalogo {
     // Apartado filtrar por Tipo
 
     public void Filtrar_Tipo(ArrayList<Articulo> filtrarTipo) {
-        this.articulo = filtrarTipo;
+        this.articulos = filtrarTipo;
     }
 
     public boolean anadirTipo(Articulo art) {
         boolean insertado = false;
         if (art != null) {
-            insertado = articulo.add(art);
+            insertado = articulos.add(art);
         }
         return insertado;
     }
 
-    public Articulo BuscarTipo(Articulo tipo) {
+    public Articulo BuscarTipo(Bolso bolso) {
         Articulo art = null, enc = null;
         boolean encontrado = false;
-        Iterator<Articulo> iterator = articulo.iterator();
+        Iterator<Articulo> iterator = articulos.iterator();
         while (iterator.hasNext() && !encontrado) {
             art = iterator.next();
-            if (art.getDescripcion() == tipo.getDescripcion()) {
+            if (art.getDescripcion() == bolso.getDescripcion()) {
                 enc = art;
                 encontrado = true;
             }
@@ -128,10 +132,10 @@ public class Catalogo {
         return enc;
     }
 
-    public boolean borrarTipo(Articulo art) {
+    public boolean borrarTipo(Bolso bolso) {
         boolean insertado = false;
-        if (art != null) {
-            insertado = articulo.remove(art);
+        if (bolso != null) {
+            insertado = articulos.remove(bolso);
         }
         return insertado;
     }
@@ -141,7 +145,7 @@ public class Catalogo {
     public boolean anadirFiltro(Articulo art) {
         boolean insertado = false;
         if (art != null) {
-            insertado = articulo.add(art);
+            insertado = articulos.add(art);
         }
         return insertado;
     }
@@ -149,7 +153,7 @@ public class Catalogo {
     public Articulo BuscarMaterial(Articulo ma) {
         Articulo art = null, enc = null;
         boolean encontrado = false;
-        Iterator<Articulo> iterator = articulo.iterator();
+        Iterator<Articulo> iterator = articulos.iterator();
         while (iterator.hasNext() && !encontrado) {
             art = iterator.next();
             if (art.getDescripcion() == ma.getDescripcion()) {
@@ -163,7 +167,7 @@ public class Catalogo {
     public boolean borrarFiltro(Articulo art) {
         boolean insertado = false;
         if (art != null) {
-            insertado = articulo.remove(art);
+            insertado = articulos.remove(art);
         }
         return insertado;
     }
@@ -172,7 +176,7 @@ public class Catalogo {
     public boolean anadirActivacion(Articulo tip) {
         boolean insertado = false;
         if (tip != null) {
-            insertado = articulo.add(tip);
+            insertado = articulos.add(tip);
         }
         return insertado;
     }
@@ -180,7 +184,7 @@ public class Catalogo {
     public Articulo BuscarActivacion(Articulo act) {
         Articulo art = null, enc = null;
         boolean encontrado = false;
-        Iterator<Articulo> iterator = articulo.iterator();
+        Iterator<Articulo> iterator = articulos.iterator();
         while (iterator.hasNext() && !encontrado) {
             art = iterator.next();
             if (art.isActivo() == act.isActivo()) {
@@ -191,10 +195,23 @@ public class Catalogo {
         return enc;
     }
 
+    //Este es el que nos pusiste de ejemplo, pero da errores.
+//    public ArrayList buscarPorActivo(boolean activo) {
+//        ArrayList sublista = new ArrayList<>();
+//        Articulo art = null;
+//        Iterator iterator = articulos.iterator();
+//        while (iterator.hasNext() && !encontrado) {
+//            art = iterator.next();
+//            if (art.isActivo() == activo) {
+//                sublista.add(art);
+//            }
+//        } return sublista;
+//    }
+
     public boolean borrarActivacion(Articulo art) {
         boolean insertado = false;
         if (art != null) {
-            insertado = articulo.remove(art);
+            insertado = articulos.remove(art);
         }
         return insertado;
     }
