@@ -12,6 +12,10 @@ public class Catalogo {
         this.articulo = articulo;
     }
 
+    public Catalogo() {
+        articulo = new ArrayList();
+    }
+
     public ArrayList<Articulo> getArticulo() {
         return articulo;
     }

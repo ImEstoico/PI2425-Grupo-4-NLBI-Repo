@@ -1,26 +1,53 @@
 package tienda;
 
+import tienda.Model.Articulos.Articulo;
 import tienda.Model.Catalogo.Catalogo;
+import tienda.Model.Clientes.Cliente;
 import tienda.Model.Clientes.Clientela;
+import tienda.Model.Empleados.Empleado;
 import tienda.Model.Empleados.Plantilla;
 import tienda.Model.Ventas.Venta;
 import tienda.Util.Console.ConsoleReader;
+import tienda.Util.Console.ConsoleUtil;
+import tienda.Util.File.FileUtil;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class TiendaConsola {
     private static Plantilla plantilla = new Plantilla();
     private static Clientela clientela = new Clientela();
-    private static Catalogo catalogo = new Catalogo(new ArrayList<>());
-    private static Venta ventas = new Venta(new ArrayList<>());
+    private static Catalogo catalogo = new Catalogo();
+    private static Venta ventas = new Venta();
+
+    private static final String filePath = "objeto.bin";
 
     public static void main(String[] args) {
         while (true) {
+            //inicio opcional (depende como vaya siguiendo el programa)
+            System.out.println("╭───────────────────────────────────────────────────────────.★..─╮");
+            System.out.println("   _____                          _   _    _                 _ ");
+            System.out.println("  / ____|                        | | | |  | |               | |");
+            System.out.println(" | (___   ___  ___ ___  _ __   __| | | |__| | __ _ _ __   __| |");
+            System.out.println("  \\___ \\ / _ \\/ __/ _ \\| '_ \\ / _` | |  __  |/ _` | '_ \\ / _` |");
+            System.out.println("  ____) |  __/ (_| (_) | | | | (_| | | |  | | (_| | | | | (_| |");
+            System.out.println(" |_____/ \\___|\\___\\___/|_| |_|\\__,_| |_|  |_|\\" +
+                    "__,_|_| |_|\\" +
+                    "__,_|");
+            System.out.println("╰─..★.───────────────────────────────────────────────────────────╯ \n");
+
             System.out.println("Menú Principal:");
             System.out.println("1. Submenú Plantillas");
             System.out.println("2. Submenú Clientela");
             System.out.println("3. Submenú Catálogo");
             System.out.println("4. Submenú Ventas (no implementado)");
-            System.out.println("5. Salir");
+            System.out.println("5. Serializar objeto");
+            System.out.println("6. Deserializar objeto");
+            System.out.println("7. Serializar lista de objetos");
+            System.out.println("8. Deserializar lista de objetos");
+            System.out.println("9. Guardar lista de objetos en JSON");
+            System.out.println("10. Leer lista de objetos en JSON");
+            System.out.println("11. Salir");
             System.out.print("Selecciona una opción: ");
 
             int opcion = ConsoleReader.readInt();
@@ -39,6 +66,118 @@ public class TiendaConsola {
                     System.out.println("Submenú Ventas no implementado.");
                     break;
                 case 5:
+                    System.out.println("Elige el objeto a serializar:");
+                    System.out.println("1. Plantilla");
+                    System.out.println("2. Clientela");
+                    System.out.println("3. Catálogo");
+                    int opcionSerializar = ConsoleReader.readInt();
+                    switch (opcionSerializar) {
+                        case 1:
+                            FileUtil.serializarObjeto(plantilla, filePath);
+                            break;
+                        case 2:
+                            FileUtil.serializarObjeto(clientela, filePath);
+                            break;
+                        case 3:
+                            FileUtil.serializarObjeto(catalogo, filePath);
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intenta de nuevo.");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Elige el objeto a deserializar:");
+                    System.out.println("1. Plantilla");
+                    System.out.println("2. Clientela");
+                    System.out.println("3. Catálogo");
+                    int opcionDeserializar = ConsoleReader.readInt();
+                    switch (opcionDeserializar) {
+                        case 1:
+                            plantilla = FileUtil.deserializarObjeto(filePath, Plantilla.class);
+                            break;
+                        case 2:
+                            clientela = FileUtil.deserializarObjeto(filePath,Clientela.class );
+                            break;
+                        case 3:
+                            catalogo = FileUtil.deserializarObjeto(filePath, Catalogo.class);
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intenta de nuevo.");
+                    }
+                    break;
+                case 7:
+                    System.out.println("Elige la lista a serializar:");
+                    System.out.println("1. Plantilla");
+                    System.out.println("2. Clientela");
+                    System.out.println("3. Catálogo");
+                    int opcionSerializarLista = ConsoleReader.readInt();
+                    switch (opcionSerializarLista) {
+                        case 1:
+                            FileUtil.serializarListaObjetos(plantilla.getEmpleados(), filePath);
+                            break;
+                        case 2:
+                            FileUtil.serializarListaObjetos(clientela.getClientes(), filePath);
+                            break;
+                        case 3:
+                            FileUtil.serializarListaObjetos(catalogo.getArticulo(), filePath);
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intenta de nuevo.");
+                    }
+                    break;
+                case 8:
+                    System.out.println("Elige la lista a deserializar:");
+                    System.out.println("1. Plantilla");
+                    System.out.println("2. Clientela");
+                    System.out.println("3. Catálogo");
+                    int opcionDeserializarLista = ConsoleReader.readInt();
+                    switch (opcionDeserializarLista) {
+                        case 1:
+                            break;
+                    }
+                    FileUtil.deserializarListaObjetos();
+                    break;
+                case  9:
+                    System.out.println("Elige el objeto a deserializar:");
+                    System.out.println("1. Clientes");
+                    System.out.println("2. Articulos");
+                    System.out.println("3. Empleados");
+                    int opcionSerializarJson = ConsoleReader.readInt();
+                    switch (opcionSerializarJson) {
+                        case 1:
+                            FileUtil.guardarClientesEnJson();
+                            FileUtil.guardarMetodosPagoEnJson();
+                            break;
+                        case 2:
+                            FileUtil.guardarArticulosEnJson();
+                            break;
+                        case 3:
+                            FileUtil.guardarEmpleadosEnJson();
+                            FileUtil.guardarDepartamentosEnJson();
+                            break;
+                    }
+                    break;
+                case 10:
+                    System.out.println("Elige el objeto a deserializar:");
+                    System.out.println("1. Clientes");
+                    System.out.println("2. Articulos");
+                    System.out.println("3. Empleados");
+                    int opcionDeserializarJson = ConsoleReader.readInt();
+                    switch (opcionDeserializarJson) {
+                        case 1:
+                            FileUtil.leerClientesDesdeJson();
+                            FileUtil.leerMetodosPagoDesdeJson();
+                            break;
+                        case 2:
+                            FileUtil.leerArticulosDesdeJson();
+                            break;
+                        case 3:
+                            FileUtil.leerEmpleadosDesdeJson();
+                            FileUtil.leerDepartamentosDesdeJson();
+                            break;
+                    }
+                    break;
+                case 11:
                     System.out.println("Saliendo...");
                     return;
                 default:
@@ -56,14 +195,16 @@ public class TiendaConsola {
 
             int opcion = ConsoleReader.readInt();
 
-            if (opcion == 1) {
-                System.out.print("Introduce el nombre del empleado: ");
-                String empleado = ConsoleReader.readString();
-                plantilla.addEmpleado(empleado);
-            } else if (opcion == 2) {
-                return;
-            } else {
-                System.out.println("Opción no válida. Intenta de nuevo.");
+            switch (opcion) {
+                case 1:
+                    System.out.print("Introduce el nombre del empleado: ");
+                    Empleado empleado = ConsoleUtil.crearEmpleado();
+                    plantilla.addEmpleado(empleado);
+                    break;
+                case 2:
+                    return;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
             }
         }
     }
@@ -79,14 +220,16 @@ public class TiendaConsola {
 
             int opcion = ConsoleReader.readInt();
 
-            if (opcion == 1) {
-                System.out.print("Introduce el nombre del cliente: ");
-                String cliente = ConsoleReader.readString();
-                clientela.addCliente(cliente);
-            } else if (opcion == 2) {
-                return;
-            } else {
-                System.out.println("Opción no válida. Intenta de nuevo.");
+            switch (opcion) {
+                case 1:
+                    System.out.print("Introduce el nombre del cliente: ");
+                    Cliente cliente = ConsoleUtil.crearCliente();
+                    clientela.addCliente(cliente);
+                    break;
+                case 2:
+                    return;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
             }
         }
     }
@@ -100,31 +243,43 @@ public class TiendaConsola {
 
             int opcion = ConsoleReader.readInt();
 
-            if (opcion == 1) {
-                System.out.println("Selecciona el tipo de artículo:");
-                System.out.println("1. Camisa");
-                System.out.println("2. Chaqueta");
-                // Puedes añadir más tipos de artículos aquí
-                System.out.print("Selecciona una opción: ");
-                int tipo = ConsoleReader.readInt();
-
-                String articulo = "";
-                switch (tipo) {
-                    case 1:
-                        articulo = "Camisa";
-                        break;
-                    case 2:
-                        articulo = "Chaqueta";
-                        break;
-                    default:
-                        System.out.println("Tipo no válido.");
-                        continue;
-                }
-                catalogo.addArticulo(articulo);
-            } else if (opcion == 2) {
-                return;
-            } else {
-                System.out.println("Opción no válida. Intenta de nuevo.");
+            switch (opcion) {
+                case 1:
+                    System.out.print("Selecciona el tipo de artículo: ");
+                    System.out.println("1. Camisa");
+                    System.out.println("2. Chaqueta");
+                    System.out.println("3. Pantalón");
+                    System.out.println("4. Zapato");
+                    System.out.println("5. Bolso");
+                    System.out.print("Selecciona una opción: ");
+                    int tipo = ConsoleReader.readInt();
+                    Articulo articulo = null;
+                    switch (tipo) {
+                        case 1:
+                            articulo = ConsoleUtil.crearCamisa();
+                            break;
+                        case 2:
+                            articulo = ConsoleUtil.crearChaqueta();
+                            break;
+                        case 3:
+                            articulo = ConsoleUtil.crearPantalon();
+                            break;
+                        case 4:
+                            articulo = ConsoleUtil.crearZapato();
+                            break;
+                        case 5:
+                            articulo = ConsoleUtil.crearBolso();
+                            break;
+                        default:
+                            System.out.println("Tipo no válido.");
+                            continue;
+                    }
+                    catalogo.addArticulo(articulo);
+                    break;
+                case 2:
+                    return;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
             }
         }
     }

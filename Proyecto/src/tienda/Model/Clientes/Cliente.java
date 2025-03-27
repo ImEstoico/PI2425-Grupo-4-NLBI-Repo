@@ -4,10 +4,12 @@ import tienda.Model.Pedidos.Metodo_Pago;
 import tienda.Model.Pedidos.Pedido;
 import tienda.Model.Usuarios.Usuario;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Cliente extends Usuario {
+public class Cliente extends Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int numeroPedidos;
     private boolean tieneTarjetaFidelizacion;
