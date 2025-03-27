@@ -1,4 +1,4 @@
-package tienda.Model;
+package tienda.Model.Catalogo;
 
 public class Material {
 

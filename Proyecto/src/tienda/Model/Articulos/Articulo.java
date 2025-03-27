@@ -1,6 +1,8 @@
-package tienda.Model;
+package tienda.Model.Articulos;
 
-abstract class Articulo {
+import tienda.Model.Catalogo.Material;
+
+  public abstract class Articulo {
     protected String codigoArticulo;
     protected String nombre;
     protected float precio;
@@ -8,8 +10,11 @@ abstract class Articulo {
     protected String descripcion;
     protected String imagen;
     protected boolean activo;
+    protected String color;
+    protected Material material;
 
-    public Articulo(String codigoArticulo, String nombre, float precio, String marca, String descripcion, String imagen, boolean activo) {
+    public Articulo(String codigoArticulo, String nombre, float precio, String marca, String descripcion,
+                    String imagen, boolean activo, String color, Material material) {
         this.codigoArticulo = codigoArticulo;
         this.nombre = nombre;
         this.precio = precio;
@@ -17,6 +22,8 @@ abstract class Articulo {
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.activo = activo;
+        this.color = color;
+        this.material = material;
     }
 
     public String getCodigoArticulo() {
@@ -73,5 +80,21 @@ abstract class Articulo {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
     }
 }

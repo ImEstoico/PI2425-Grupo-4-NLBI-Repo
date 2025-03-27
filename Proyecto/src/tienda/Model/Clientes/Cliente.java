@@ -1,25 +1,37 @@
-package tienda.Model;
+package tienda.Model.Clientes;
 
-class Cliente extends Usuario {
+import tienda.Model.Pedidos.Metodo_Pago;
+import tienda.Model.Pedidos.Pedido;
+import tienda.Model.Usuarios.Usuario;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public abstract class Cliente extends Usuario {
+
     private int numeroPedidos;
     private boolean tieneTarjetaFidelizacion;
     private String direccionEnvio;
-    private String metodoPago;
+    private Metodo_Pago metodoPago;
+    ArrayList<Pedido> pedidos = new ArrayList<>();
 
-    public Cliente(String dni, String nombre, String apellidos, int telefono,
-                   String direccion, String email, int numeroPedidos, boolean tieneTarjetaFidelizacion, String direccionEnvio, String metodoPago) {
-        super(dni, nombre, apellidos, telefono, direccion, email);
+    public Cliente(String dni, String apellidos, String nombre, int telefono, String direccion, String email,
+                   boolean activo, String pass, LocalDate f_nacimiento, int numeroPedidos,
+                   boolean tieneTarjetaFidelizacion, String direccionEnvio, Metodo_Pago metodoPago,
+                   ArrayList<Pedido> pedidos) {
+        super(dni, apellidos, nombre, telefono, direccion, email, activo, pass, f_nacimiento);
         this.numeroPedidos = numeroPedidos;
         this.tieneTarjetaFidelizacion = tieneTarjetaFidelizacion;
         this.direccionEnvio = direccionEnvio;
         this.metodoPago = metodoPago;
+        this.pedidos = pedidos;
     }
 
     public int getNumeroPedidos() {
         return numeroPedidos;
     }
 
-    public boolean tieneTarjetaFidelizacion() {
+    public boolean isTieneTarjetaFidelizacion() {
         return tieneTarjetaFidelizacion;
     }
 
@@ -27,7 +39,7 @@ class Cliente extends Usuario {
         return direccionEnvio;
     }
 
-    public String getMetodoPago() {
+    public Metodo_Pago getMetodoPago() {
         return metodoPago;
     }
 
@@ -43,8 +55,16 @@ class Cliente extends Usuario {
         this.direccionEnvio = direccionEnvio;
     }
 
-    public void setMetodoPago(String metodoPago) {
+    public void setMetodoPago(Metodo_Pago metodoPago) {
         this.metodoPago = metodoPago;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public void realizarPedido() {
@@ -59,4 +79,3 @@ class Cliente extends Usuario {
         System.out.println("Visualizando artículos de la tienda...");
     }
 }
-

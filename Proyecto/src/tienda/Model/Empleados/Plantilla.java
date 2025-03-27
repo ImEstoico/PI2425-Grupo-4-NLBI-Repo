@@ -1,4 +1,4 @@
-package tienda.Model;
+package tienda.Model.Empleados;
 
 import java.util.ArrayList;
 
@@ -97,7 +97,7 @@ public class Plantilla{
     public void FiltrarDepartamentoEmpleado(String departamento) {
         ArrayList<Empleado> empleadosFiltrados = new ArrayList();
         for (Empleado empleado : empleados) {
-            if(empleado.getDepartamento() == departamento){
+            if(empleado.getDepartamento().equals(departamento)){
                 empleadosFiltrados.add(empleado);
             }
         }
@@ -119,9 +119,4 @@ public class Plantilla{
                 "empleados=" + empleados +
                 '}';
     }
-
-
-
-
-
 }

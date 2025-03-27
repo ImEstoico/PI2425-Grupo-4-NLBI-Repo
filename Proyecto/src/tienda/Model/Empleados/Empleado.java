@@ -1,13 +1,18 @@
-package tienda.Model;
+package tienda.Model.Empleados;
+
+import tienda.Model.Usuarios.Usuario;
+
+import java.time.LocalDate;
 
 class Empleado extends Usuario {
 
     private boolean tienePrivilegios;
-    private String departamento;
+    private Departamento departamento;
 
-    public Empleado(String dni, String nombre, String apellidos, int telefono,
-                    String direccion, String email, boolean tienePrivilegios, String departamento) {
-        super(dni, nombre, apellidos, telefono, direccion, email);
+    public Empleado(String dni, String apellidos, String nombre, int telefono, String direccion,
+                    String email, boolean activo, String pass, LocalDate f_nacimiento,
+                    boolean tienePrivilegios, Departamento departamento) {
+        super(dni, apellidos, nombre, telefono, direccion, email, activo, pass, f_nacimiento);
         this.tienePrivilegios = tienePrivilegios;
         this.departamento = departamento;
     }
@@ -16,7 +21,7 @@ class Empleado extends Usuario {
         return tienePrivilegios;
     }
 
-    public String getDepartamento() {
+    public Departamento getDepartamento() {
         return departamento;
     }
 
@@ -24,7 +29,7 @@ class Empleado extends Usuario {
         this.tienePrivilegios = tienePrivilegios;
     }
 
-    public void setDepartamento(String departamento) {
+    public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
 
