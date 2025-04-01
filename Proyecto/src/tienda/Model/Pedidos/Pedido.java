@@ -1,5 +1,7 @@
 package tienda.Model.Pedidos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Clientes.Cliente;
 
 import java.util.ArrayList;
@@ -17,9 +19,15 @@ public class Pedido {
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     //Contructor
-
-    public Pedido(int numeroPedido, Date fecha, String dir_envio, String DNI_cliente,
-                  Metodo_Pago metodoPago, ArrayList<LineaPedido> lineaPedidos, ArrayList<Cliente> clientes) {
+    @JsonCreator
+    public Pedido(
+            @JsonProperty("numeroPedido")int numeroPedido,
+            @JsonProperty("fecha")Date fecha,
+            @JsonProperty("dir_envio")String dir_envio,
+            @JsonProperty("DNI_cliente")String DNI_cliente,
+                  Metodo_Pago metodoPago,
+            ArrayList<LineaPedido> lineaPedidos,
+            ArrayList<Cliente> clientes) {
         this.numeroPedido = numeroPedido;
         this.fecha = fecha;
         this.dir_envio = dir_envio;

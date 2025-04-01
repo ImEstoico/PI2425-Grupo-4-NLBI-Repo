@@ -1,5 +1,8 @@
 package tienda.Model.Pedidos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 
 public class Metodo_Pago {
@@ -8,12 +11,19 @@ public class Metodo_Pago {
     private String descripcion ;
     ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
 
-    public Metodo_Pago(int codigo, String descripcion) {
+    @JsonCreator
+    public Metodo_Pago(
+            @JsonProperty("codigo") int codigo,
+            @JsonProperty("descripcion")String descripcion) {
         this.codigo = codigo;
         this.descripcion = descripcion;
     }
 
-    public Metodo_Pago(int codigo, String descripcion, ArrayList<Pedido> pedidos) {
+    @JsonCreator
+    public Metodo_Pago(
+            @JsonProperty("codigo")int codigo,
+            @JsonProperty("descripcion")String descripcion,
+            ArrayList<Pedido> pedidos) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.pedidos = pedidos;

@@ -2,7 +2,7 @@ package tienda.Model.Articulos;
 
 import tienda.Model.Catalogo.Material;
 
-abstract class Ropa extends Articulo {
+public class Ropa extends Articulo {
     protected int talla;
     protected String tipoCierre;
     protected enum TipoRopa{};

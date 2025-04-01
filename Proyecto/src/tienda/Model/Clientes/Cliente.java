@@ -1,5 +1,7 @@
 package tienda.Model.Clientes;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Pedidos.Metodo_Pago;
 import tienda.Model.Pedidos.Pedido;
 import tienda.Model.Usuarios.Usuario;
@@ -17,10 +19,22 @@ public class Cliente extends Usuario implements Serializable {
     private Metodo_Pago metodoPago;
     ArrayList<Pedido> pedidos = new ArrayList<>();
 
-    public Cliente(String dni, String apellidos, String nombre, int telefono, String direccion, String email,
-                   boolean activo, String pass, LocalDate f_nacimiento, int numeroPedidos,
-                   boolean tieneTarjetaFidelizacion, String direccionEnvio, Metodo_Pago metodoPago,
-                   ArrayList<Pedido> pedidos) {
+    @JsonCreator
+    public Cliente(
+            @JsonProperty("dni") String dni,
+            @JsonProperty("apellidos") String apellidos,
+            @JsonProperty("nombre") String nombre,
+            @JsonProperty("telefono")int telefono,
+            @JsonProperty("direccion")String direccion,
+            @JsonProperty("email")String email,
+            @JsonProperty("activo")boolean activo,
+            @JsonProperty("pass")String pass,
+            @JsonProperty("f_nacimiento")LocalDate f_nacimiento,
+            @JsonProperty("numeroPedidos")int numeroPedidos,
+            @JsonProperty("tieneTarjetaFidelizacion")boolean tieneTarjetaFidelizacion,
+            @JsonProperty("direccionEnvio")String direccionEnvio,
+            Metodo_Pago metodoPago,
+            ArrayList<Pedido> pedidos) {
         super(dni, apellidos, nombre, telefono, direccion, email, activo, pass, f_nacimiento);
         this.numeroPedidos = numeroPedidos;
         this.tieneTarjetaFidelizacion = tieneTarjetaFidelizacion;

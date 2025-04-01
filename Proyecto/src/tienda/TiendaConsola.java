@@ -4,17 +4,14 @@ import tienda.Model.Articulos.Articulo;
 import tienda.Model.Catalogo.Catalogo;
 import tienda.Model.Clientes.Cliente;
 import tienda.Model.Clientes.Clientela;
-import tienda.Model.Empleados.Departamento;
 import tienda.Model.Empleados.Empleado;
 import tienda.Model.Empleados.Plantilla;
-import tienda.Model.Pedidos.Metodo_Pago;
-import tienda.Model.Pedidos.Pedido;
 import tienda.Model.Ventas.Venta;
 import tienda.Util.Console.ConsoleReader;
 import tienda.Util.Console.ConsoleUtil;
 import tienda.Util.File.FileUtil;
+import tienda.dao.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TiendaConsola {
@@ -158,14 +155,12 @@ public class TiendaConsola {
                     switch (opcionSerializarJson) {
                         case 1:
                             FileUtil.guardarClientesEnJson(clientela, "clientes.json");
-                            FileUtil.guardarMetodosPagoEnJson(, "clientes.json");
                             break;
                         case 2:
                             FileUtil.guardarArticulosEnJson(catalogo, "articulos.json");
                             break;
                         case 3:
                             FileUtil.guardarEmpleadosEnJson(plantilla, "empleados.json");
-                            FileUtil.guardarDepartamentosEnJson(, "empleados.json");
                             break;
                     }
                     break;
@@ -202,9 +197,13 @@ public class TiendaConsola {
         while (true) {
             System.out.println("\nSubmenú Plantillas:");
             System.out.println("1. Añadir empleado");
-            System.out.println("2. Volver al menú principal");
+            System.out.println("2. Listar empleados");
+            System.out.println("3.Buscar empleado por DNI");
+            System.out.println("4. Validar contraseña de empleado");
+            System.out.println("5. Volver al menú principal");
             System.out.print("Selecciona una opción: ");
 
+            EmpleadoDAO empleadoDAO = new EmpleadoDAO();
             int opcion = ConsoleReader.readInt();
 
             switch (opcion) {
@@ -214,6 +213,14 @@ public class TiendaConsola {
                     plantilla.addEmpleado(empleado);
                     break;
                 case 2:
+                    empleadoDAO.obtenerTodosEmpleados();
+                    break;
+                case 3:
+                    empleadoDAO.ObtenerEmpleadoPorDNI("DNI");
+                    break;
+                case 4:
+                    empleadoDAO.autenticarEmpleado("Email", "pass");
+                case 5:
                     return;
                 default:
                     System.out.println("Opción no válida. Intenta de nuevo.");
@@ -225,9 +232,14 @@ public class TiendaConsola {
         while (true) {
             System.out.println("\nSubmenú Clientela:");
             System.out.println("1. Añadir cliente");
-            System.out.println("2. Volver al menú principal");
+            System.out.println("2. Listar clientes");
+            System.out.println("3. Buscar cliente por DNI");
+            System.out.println("4. Validar contraseña de cliente");
+            System.out.println("5. Listar pedidos de un cliente");
+            System.out.println("6. Volver al menú principal");
             System.out.print("Selecciona una opción: ");
 
+            ClienteDAO ClienteDAO = new ClienteDAO();
             int opcion = ConsoleReader.readInt();
 
             switch (opcion) {
@@ -237,6 +249,18 @@ public class TiendaConsola {
                     clientela.addCliente(cliente);
                     break;
                 case 2:
+                    ClienteDAO.obtenerTodosClientes();
+                    break;
+                case 3:
+                    ClienteDAO.obtenerPorDNI("DNI");
+                    break;
+                case 4:
+                    ClienteDAO.autenticarCliente("Email", "pass");
+                    break;
+                case 5:
+                    PedidoDAO.obtenerPedidosPorCliente("DNI");
+                    break;
+                case 6:
                     return;
                 default:
                     System.out.println("Opción no válida. Intenta de nuevo.");
@@ -248,9 +272,16 @@ public class TiendaConsola {
         while (true) {
             System.out.println("\nSubmenú Catálogo:");
             System.out.println("1. Añadir artículo");
-            System.out.println("2. Volver al menú principal");
+            System.out.println("2. Listar artículos");
+            System.out.println("3. Listar ropa por tipo");
+            System.out.println("4. Listar accesorios por tipo");
+            System.out.println("5. Buscar artículo por codigo");
+            System.out.println("6. Volver al menú principal");
             System.out.print("Selecciona una opción: ");
 
+            ArticuloDAO articuloDAO = new ArticuloDAO();
+            RopaDAO ropaDAO = new RopaDAO();
+            AccesorioDAO accesorioDAO = new AccesorioDAO();
             int opcion = ConsoleReader.readInt();
 
             switch (opcion) {
@@ -287,6 +318,17 @@ public class TiendaConsola {
                     catalogo.addArticulo(articulo);
                     break;
                 case 2:
+                    articuloDAO.obtenerTodos();
+                    break;
+                case 3:
+                    ropaDAO.obtenerPorId(1);
+                    break;
+                case 4:
+                    accesorioDAO.obtenerPorId(1);
+                    break;
+                case 5:
+                    articuloDAO.obtenerPorId(1);
+                case 6:
                     return;
                 default:
                     System.out.println("Opción no válida. Intenta de nuevo.");

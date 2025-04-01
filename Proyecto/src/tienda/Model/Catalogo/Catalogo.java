@@ -196,17 +196,18 @@ public class Catalogo {
     }
 
     //Este es el que nos pusiste de ejemplo, pero da errores.
-//    public ArrayList buscarPorActivo(boolean activo) {
-//        ArrayList sublista = new ArrayList<>();
-//        Articulo art = null;
-//        Iterator iterator = articulos.iterator();
-//        while (iterator.hasNext() && !encontrado) {
-//            art = iterator.next();
-//            if (art.isActivo() == activo) {
-//                sublista.add(art);
-//            }
-//        } return sublista;
-//    }
+    public ArrayList buscarPorActivo(boolean activo) {
+        boolean encontrado = false;
+        ArrayList sublista = new ArrayList<>();
+        Articulo art = null;
+        Iterator iterator = articulos.iterator();
+        while (iterator.hasNext() && !encontrado) {
+            art = (Articulo) iterator.next();
+            if (art.isActivo() == activo) {
+                sublista.add(art);
+            }
+        } return sublista;
+    }
 
     public boolean borrarActivacion(Articulo art) {
         boolean insertado = false;
@@ -216,4 +217,3 @@ public class Catalogo {
         return insertado;
     }
 }
-

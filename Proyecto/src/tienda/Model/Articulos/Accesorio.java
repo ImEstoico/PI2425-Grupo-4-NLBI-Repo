@@ -3,7 +3,7 @@ package tienda.Model.Articulos;
 import tienda.Model.Articulos.*;
 import tienda.Model.Catalogo.Material;
 
-abstract class Accesorio extends Articulo {
+public class Accesorio extends Articulo {
     private String estilo;
     private boolean esPersonalizado;
     private enum TipoAccesorio{};
