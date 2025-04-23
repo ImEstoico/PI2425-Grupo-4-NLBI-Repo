@@ -1,5 +1,7 @@
 package tienda.Model.Pedidos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Articulos.Articulo;
 
 public class LineaPedido{
@@ -9,7 +11,8 @@ public class LineaPedido{
 
     //Contructor
 
-    public LineaPedido(int num_pedido, Articulo articulo) {
+    @JsonCreator
+    public LineaPedido(@JsonProperty("int") int num_pedido, Articulo articulo) {
         this.num_pedido = num_pedido;
         this.articulo = articulo;
     }

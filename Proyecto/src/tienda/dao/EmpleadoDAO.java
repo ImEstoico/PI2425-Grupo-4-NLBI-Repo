@@ -30,7 +30,8 @@ public class EmpleadoDAO implements GenericDAO <Empleado, String>{
         return null;
     }
 
-    public List<Empleado> obtenerTodosEmpleados() {
+    @Override
+    public List<Empleado> obtenerTodos() {
         List<Empleado> empleados = new ArrayList<>();
         String sql = "SELECT * FROM empleado";
         try (Connection conn = DBUtil.getConnection();

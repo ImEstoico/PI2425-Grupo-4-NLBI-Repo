@@ -1,5 +1,7 @@
 package tienda.Model.Empleados;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Usuarios.Usuario;
 
 import java.io.Serializable;
@@ -8,13 +10,20 @@ import java.time.LocalDate;
 public class Empleado extends Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
 
-
     private boolean tienePrivilegios;
     private Departamento departamento;
 
-    public Empleado(String dni, String apellidos, String nombre, int telefono, String direccion,
-                    String email, boolean activo, String pass, LocalDate f_nacimiento,
-                    boolean tienePrivilegios, Departamento departamento) {
+    @JsonCreator
+    public Empleado(@JsonProperty("dni") String dni,
+                    @JsonProperty("apellidos") String apellidos,
+                    @JsonProperty("nombre") String nombre,
+                    @JsonProperty("telefono") int telefono,
+                    @JsonProperty("direccion") String direccion,
+                    @JsonProperty("email") String email,
+                    @JsonProperty("activo") boolean activo,
+                    @JsonProperty("pass") String pass,
+                    @JsonProperty("f_nacimiento") LocalDate f_nacimiento,
+                    @JsonProperty("tienePrivilegios") boolean tienePrivilegios, Departamento departamento) {
         super(dni, apellidos, nombre, telefono, direccion, email, activo, pass, f_nacimiento);
         this.tienePrivilegios = tienePrivilegios;
         this.departamento = departamento;

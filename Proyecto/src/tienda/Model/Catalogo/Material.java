@@ -1,12 +1,17 @@
 package tienda.Model.Catalogo;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Material {
 
     private int codigo;
     private String denominacion;
 
     //Contructor
-    public Material(int codigo, String denominacion) {
+
+    @JsonCreator
+    public Material(@JsonProperty("codigo") int codigo,@JsonProperty("denominacion") String denominacion) {
         this.codigo = codigo;
         this.denominacion = denominacion;
     }

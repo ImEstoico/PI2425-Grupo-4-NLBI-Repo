@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccesorioDAO implements GenericDAO<Accesorio, Integer> {
+
     @Override
     public void insertar(Accesorio accesorio) {
         // TODO: Implementar este método más adelante

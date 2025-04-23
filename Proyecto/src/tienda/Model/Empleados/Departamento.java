@@ -1,5 +1,8 @@
 package tienda.Model.Empleados;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Departamento  {
 
     private int codigo;
@@ -24,7 +27,9 @@ public class Departamento  {
     }
 
     //Crear departamento
-    public Departamento(int codigo, String nombre) {
+
+    @JsonCreator
+    public Departamento(@JsonProperty("codigo") int codigo,@JsonProperty("nombre") String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
     }

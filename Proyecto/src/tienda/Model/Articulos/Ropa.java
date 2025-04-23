@@ -1,5 +1,7 @@
 package tienda.Model.Articulos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Catalogo.Material;
 
 public class Ropa extends Articulo {
@@ -7,8 +9,17 @@ public class Ropa extends Articulo {
     protected String tipoCierre;
     protected enum TipoRopa{};
 
-    public Ropa(String codigoArticulo, String nombre, float precio, String marca, String descripcion,
-                String imagen, boolean activo, String color, Material material, int talla, String tipoCierre) {
+    @JsonCreator
+    public Ropa(@JsonProperty("codigoArticulo") String codigoArticulo,
+                @JsonProperty("nombre") String nombre,
+                @JsonProperty("precio") float precio,
+                @JsonProperty("marca") String marca,
+                @JsonProperty("descripcion") String descripcion,
+                @JsonProperty("imagen") String imagen,
+                @JsonProperty("activo") boolean activo,
+                @JsonProperty("color") String color, Material material,
+                @JsonProperty("talla") int talla,
+                @JsonProperty("tipoCierre") String tipoCierre) {
         super(codigoArticulo, nombre, precio, marca, descripcion, imagen, activo, color, material);
         this.talla = talla;
         this.tipoCierre = tipoCierre;

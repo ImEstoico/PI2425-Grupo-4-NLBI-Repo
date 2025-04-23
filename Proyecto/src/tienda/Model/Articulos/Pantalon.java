@@ -1,5 +1,7 @@
 package tienda.Model.Articulos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Catalogo.Material;
 import tienda.Model.Articulos.Ropa;
 
@@ -7,10 +9,19 @@ public class Pantalon extends Ropa {
     private boolean tieneBolsillo;
     private String tipoPantalon;
 
-
-    public Pantalon(String codigoArticulo, String nombre, float precio, String marca, String descripcion, String imagen,
-                    boolean activo, String color, Material material, int talla, String tipoCierre, boolean tieneBolsillo,
-                    String tipoPantalon) {
+    @JsonCreator
+    public Pantalon(@JsonProperty("codigoArticulo") String codigoArticulo,
+                    @JsonProperty("nombre") String nombre,
+                    @JsonProperty("precio") float precio,
+                    @JsonProperty("marca") String marca,
+                    @JsonProperty("descripcion") String descripcion,
+                    @JsonProperty("imagen") String imagen,
+                    @JsonProperty("activo") boolean activo,
+                    @JsonProperty("color") String color, Material material,
+                    @JsonProperty("talla") int talla,
+                    @JsonProperty("tipoCierre") String tipoCierre,
+                    @JsonProperty("tieneBolsillo") boolean tieneBolsillo,
+                    @JsonProperty("tipoPantalon") String tipoPantalon) {
         super(codigoArticulo, nombre, precio, marca, descripcion, imagen, activo, color, material, talla, tipoCierre);
         this.tieneBolsillo = tieneBolsillo;
         this.tipoPantalon = tipoPantalon;

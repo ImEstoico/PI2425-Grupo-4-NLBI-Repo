@@ -213,7 +213,7 @@ public class TiendaConsola {
                     plantilla.addEmpleado(empleado);
                     break;
                 case 2:
-                    empleadoDAO.obtenerTodosEmpleados();
+                    empleadoDAO.obtenerTodos();
                     break;
                 case 3:
                     empleadoDAO.ObtenerEmpleadoPorDNI("DNI");

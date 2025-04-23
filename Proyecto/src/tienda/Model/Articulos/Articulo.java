@@ -1,5 +1,7 @@
 package tienda.Model.Articulos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tienda.Model.Catalogo.Material;
 
   public abstract class Articulo {
@@ -13,8 +15,15 @@ import tienda.Model.Catalogo.Material;
     protected String color;
     protected Material material;
 
-    public Articulo(String codigoArticulo, String nombre, float precio, String marca, String descripcion,
-                    String imagen, boolean activo, String color, Material material) {
+    @JsonCreator
+    public Articulo(@JsonProperty("codigoArticulo") String codigoArticulo,
+                    @JsonProperty("nombre") String nombre,
+                    @JsonProperty("precio") float precio,
+                    @JsonProperty("marca") String marca,
+                    @JsonProperty("descripcion") String descripcion,
+                    @JsonProperty("imagen") String imagen,
+                    @JsonProperty("activo") boolean activo,
+                    @JsonProperty("color") String color, Material material) {
         this.codigoArticulo = codigoArticulo;
         this.nombre = nombre;
         this.precio = precio;
