@@ -1,0 +1,59 @@
+/*Logo*/
+.btn-insertar {
+    -fx-graphic: url('img/secondhand.png');
+}
+/*Bottones de Ayuda*/
+.btnPregunta{
+
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: #a3a0a0;
+
+}
+
+.btnEstado{
+
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: #a3a0a0;
+
+}
+
+.bntDevoluciones{
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: #a3a0a0;
+}
+
+.btnEnvios{
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: #a3a0a0;
+}
+
+.btnRopa{
+
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+
+}
+.btnAccesorio{
+
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+
+}
+
+.btnExtMenu{
+
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+    -fx-effect: null;
+
+}

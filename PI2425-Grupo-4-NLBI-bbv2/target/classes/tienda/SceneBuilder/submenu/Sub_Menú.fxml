@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="192.0" layoutY="90.0" text="Ropa:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="192.0" layoutY="499.0" text="Accesorios:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="711.0" layoutY="180.0" text="Acceso a panel de administración:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="181.0" layoutY="173.0" text="Chaquetas">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="178.0" layoutY="273.0" text="Pantalones">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="178.0" layoutY="380.0" text="Camisas">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="181.0" layoutY="585.0" text="Zapatos">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="181.0" layoutY="690.0" text="Bolsos">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="701.0" layoutY="273.0" text="Preguntas frecuentes">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="701.0" layoutY="374.0" text="Estado de mi pedido">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="701.0" layoutY="485.0" text="Devoluciones">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="701.0" layoutY="596.0" text="Envíos">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

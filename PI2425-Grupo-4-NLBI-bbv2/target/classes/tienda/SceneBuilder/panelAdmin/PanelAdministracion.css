@@ -1,0 +1,10 @@
+.label-mid{
+    -fx-font-size:23px;
+    -fx-font-color: black;
+    -fx-font-weight:bold;
+}
+
+.label-back {
+    -fx-font-size:40px;
+    -fx-font-color: black;
+}
