@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="1009.0" stylesheets="@PanelAdministracion.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lbPanelAdmin" layoutX="72.0" layoutY="105.0" styleClass="label-mid" text="Panel de Administración" />
+      <Icon fx:id="iconBack" content="ARROW_BACK" layoutX="36.0" layoutY="103.0" prefHeight="32.0" prefWidth="29.0" />
+      <Label fx:id="lbBienvenido" layoutX="345.0" layoutY="236.0" styleClass="label-back" text="¡Bienvenidx, Joan!" />
+      <Button fx:id="btnAltaProducto" layoutX="317.0" layoutY="339.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="179.0" style="-fx-background-color: black;" text="Dar de alta producto">
+         <graphic>
+            <Icon fx:id="iAltaProducto" content="ADD_BOX" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnAdminProductos" layoutX="521.0" layoutY="339.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="179.0" style="-fx-background-color: black;" text="Administrar productos">
+         <graphic>
+            <ImageView fx:id="imagePerchaAdmin" fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Percha.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnAdminEmpleados" contentDisplay="RIGHT" layoutX="317.0" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="179.0" style="-fx-background-color: black;" text="Administrar empleados">
+         <graphic>
+            <Icon fx:id="iAdminEmpleados" content="PERM_CONTACT_CALENDAR" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnAdminUsuarios" contentDisplay="RIGHT" layoutX="521.0" layoutY="404.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="179.0" style="-fx-background-color: black;" text="Administrar usuarios">
+         <graphic>
+            <Icon fx:id="iAdminUsuarios" content="PEOPLE_OUTLINE" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

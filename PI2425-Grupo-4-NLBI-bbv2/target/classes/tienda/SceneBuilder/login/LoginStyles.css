@@ -1,0 +1,62 @@
+.fondobase {
+    -fx-background-image: url("../images/fondo.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+
+.titulos {
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-font-family: "Arial"; /*falta el nombre de la fuente correcta */
+
+
+}
+.fx-gussianblurred {
+    -fx-effect: gaussianblur(60px, 0.8); 
+    -fx-background-color: rgba(255, 255, 255, 0.5); 
+}
+
+
+.login-box {
+    -fx-background-color: rgba(184, 184, 184, 0.5); 
+    -fx-background-radius: 10;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 0);
+}
+
+.texts .content {
+    -fx-background-color: transparent;
+}
+.texts {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.texts:focused{
+    -fx-border-color: #00bfff;
+}
+
+.button {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #333;
+}
+
+.hyperlink {
+    -fx-text-fill: #dddddd;
+    -fx-underline: true;
+    -fx-font-size: 12px;
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Chip?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1010.0" stylesheets="@SeccionProductos.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="363.0" layoutY="14.0" prefHeight="16.0" prefWidth="287.0">
+         <children>
+            <ImageView fx:id="ivSecondhand" fitHeight="25.0" fitWidth="200.0" layoutX="34.0" layoutY="-6.0">
+               <image>
+                  <Image url="@../../../../../../../recursos_proyecto_daw/pantallas/recursos/cabecera/secondhand.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fx:id="ivSeccionArticulo" fitHeight="496.0" fitWidth="471.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Card_producto.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfBuscar" layoutX="728.0" layoutY="10.0" promptText="Buscar" styleClass="font" />
+      <Label fx:id="lbProducto" layoutX="502.0" layoutY="119.0" prefHeight="29.0" prefWidth="147.0" text="Blusa de Flores">
+         <styleClass>
+            <String fx:value="label-header" />
+            <String fx:value="font" />
+         </styleClass></Label>
+      <Label fx:id="lbPrecio" layoutX="501.0" layoutY="148.0" prefHeight="49.0" prefWidth="132.0" text="19.99€">
+         <styleClass>
+            <String fx:value="label-price" />
+            <String fx:value="font" />
+         </styleClass></Label>
+      <Button fx:id="btnCarrito" layoutX="508.0" layoutY="242.0" mnemonicParsing="false" style="-fx-background-color: black;" styleClass="font" text="+ Añadir al carrito" />
+      <Label fx:id="lbdescripcion" layoutX="507.0" layoutY="299.0" text="Descripción">
+         <styleClass>
+            <String fx:value="label-mid" />
+            <String fx:value="font" />
+         </styleClass></Label>
+      <Separator fx:id="separadorDescripcion" layoutX="506.0" layoutY="317.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label fx:id="lbEtiqueta" layoutX="506.0" layoutY="409.0" text="Etiquetas">
+         <styleClass>
+            <String fx:value="label-mid" />
+            <String fx:value="font" />
+         </styleClass></Label>
+      <Separator fx:id="separadorEtiqueta" layoutX="506.0" layoutY="427.0" prefHeight="25.0" prefWidth="412.0" />
+      <Chip layoutX="508.0" layoutY="452.0" style="-fx-border-radius: 14px; -fx-border-color: black;" styleClass="font" text="color lila" />
+      <Chip layoutX="588.0" layoutY="452.0" minHeight="25.0" prefHeight="25.0" prefWidth="90.0" style="-fx-border-radius: 14px; -fx-border-color: black;" styleClass="font" text="Cierre de Cordón" />
+      <Chip layoutX="718.0" layoutY="452.0" style="-fx-border-color: black; -fx-border-radius: 14px;" styleClass="font" text="Estampado de flores" />
+      <Icon fx:id="iconCarrito" content="SHOPPING_CART" layoutX="963.0" layoutY="17.0" />
+      <Icon fx:id="iconUsuario" content="PERSON" layoutX="928.0" layoutY="17.0" />
+      <Icon fx:id="iconMenu" content="MENU" layoutX="14.0" layoutY="17.0" />
+      <Icon fx:id="iconLupa" content="SEARCH" layoutX="707.0" layoutY="13.0" prefHeight="23.0" prefWidth="22.0" />
+      <Icon fx:id="iconFlecha" content="ARROW_BACK" layoutX="3.0" layoutY="60.0" prefHeight="38.0" prefWidth="45.0" />
+      <Hyperlink fx:id="hlRopa" layoutX="501.0" layoutY="74.0" prefHeight="24.0" prefWidth="45.0" text="Ropa">
+         <styleClass>
+            <String fx:value="link" />
+            <String fx:value="font" />
+         </styleClass></Hyperlink>
+      <Hyperlink fx:id="hlCamisas" layoutX="531.0" layoutY="74.0" prefHeight="24.0" prefWidth="83.0" text="&gt;Camisas">
+         <styleClass>
+            <String fx:value="link" />
+            <String fx:value="font" />
+         </styleClass></Hyperlink>
+      <Hyperlink fx:id="hlBlusaDeFlores" layoutX="589.0" layoutY="75.0" prefHeight="24.0" prefWidth="113.0" text="&gt;Blusa de flores">
+         <styleClass>
+            <String fx:value="link" />
+            <String fx:value="font" />
+         </styleClass></Hyperlink>
+      <Label fx:id="lbTextoProducto" alignment="TOP_LEFT" layoutX="510.0" layoutY="334.0" prefHeight="76.0" prefWidth="380.0" styleClass="font" text="Descripción del producto." />
+   </children>
+</AnchorPane>
